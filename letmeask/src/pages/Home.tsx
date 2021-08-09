@@ -1,4 +1,4 @@
-import illustrationImg from '../../img/illustration.svg';
+import illustrationImg from '../img/illustration.svg';
 import logoImg from '../../img/logo.svg';
 import googleImage from '../../img/google-icon.svg';
 
