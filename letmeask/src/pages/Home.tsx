@@ -3,7 +3,8 @@ function Home() {
   return (
     <div>
       <aside> 
-        <img src={ illustrationImg } alt="Logo da pagina Home" />
+        <img src={ illustrationImg } alt="Ilustraçãod simbolizando a resposta" />
+        <strong> Crei sala de Q&amp;A ao-vivo</strong>
       </aside>
     </div>
   );
