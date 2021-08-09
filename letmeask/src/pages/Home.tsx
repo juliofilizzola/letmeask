@@ -1,4 +1,6 @@
-import illustrationImg from '../../img/illustration.svg'
+import illustrationImg from '../../img/illustration.svg';
+import logoImg from '../../img/logo.svg';
+
 function Home() {
   return (
     <div>
@@ -9,7 +11,8 @@ function Home() {
       </aside>
       <main>
         <div>
-          
+          <img src={ logoImg } alt="Letmeask" />
+          <button></button>
         </div>
       </main>
     </div>
