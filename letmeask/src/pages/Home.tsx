@@ -12,7 +12,9 @@ function Home() {
       <main>
         <div>
           <img src={ logoImg } alt="Letmeask" />
-          <button></button>
+          <button type="button">
+            Crie sua sala  com o Google
+          </button>
         </div>
       </main>
     </div>
