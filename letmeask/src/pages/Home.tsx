@@ -17,6 +17,7 @@ function Home() {
             <img src={ googleImage } alt="Logo da google" />
             Crie sua sala com o Google
           </button>
+          <div> ou entre em uma sala </div>
         </div>
       </main>
     </div>
