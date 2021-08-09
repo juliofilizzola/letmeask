@@ -14,8 +14,8 @@ function Home() {
         <div>
           <img src={ logoImg } alt="Letmeask" />
           <button type="button">
-            <img src={ googleImage } alt="Logando com o google" />
-            Crie sua sala  com o Google
+            <img src={ googleImage } alt="Logo da google" />
+            Crie sua sala com o Google
           </button>
         </div>
       </main>
