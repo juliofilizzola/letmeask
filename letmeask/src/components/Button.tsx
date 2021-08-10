@@ -5,7 +5,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 function Button(props: ButtonProps) {
   return (
-    <button type="button" { ...props } />
+    <button className="button" { ...props } />
   );
 }
 
