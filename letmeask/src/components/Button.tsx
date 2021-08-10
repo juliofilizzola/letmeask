@@ -1,9 +1,7 @@
-function Button() {
+function Button(props) {
   return (
-    <div>
-      
-    </div>
-  )
+    <button type="button" { ...props } />
+  );
 }
 
-export default Button
+export default Button;
