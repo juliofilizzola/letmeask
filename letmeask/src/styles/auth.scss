@@ -11,6 +11,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    padding: 120px 88px;
+
+    img {
+      max-width: 320px;
+    }
+
+    strong {
+      font: 700 36px 'Poppins', sans-serif;
+      line-height: 42px;
+    }
   }
 
   main {
