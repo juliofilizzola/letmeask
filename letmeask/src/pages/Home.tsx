@@ -2,6 +2,8 @@ import illustration from '../assets/img/illustration.svg'
 import logoImg from '../assets/img/logo.svg';
 import googleImage from '../assets/img/google-icon.svg'
 
+import '../styles/auth.scss';
+
 function Home() {
   return (
     <div id="page-auth">
