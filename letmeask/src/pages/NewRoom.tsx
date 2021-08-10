@@ -25,6 +25,7 @@ function NewRoom() {
               Criar sala
             </Button>
           </form>
+          <p>Quer entrar em uma sala existente? </p>
         </div>
       </main>
     </div>
