@@ -1,12 +1,12 @@
-import illustrationImg from '../img/illustration.svg';
-import logoImg from '../img/logo.svg';
-import googleImage from '../img/google-icon.svg';
+import illustration from '../assets/img/illustration.svg'
+import logoImg from '../assets/img/logo.svg';
+import googleImage from '../assets/img/google-icon.svg'
 
 function Home() {
   return (
     <div>
       <aside> 
-        <img src={ illustrationImg } alt="Ilustraçãod simbolizando a resposta" />
+        <img src={ illustration } alt="Ilustraçãod simbolizando a resposta" />
         <strong> Crei sala de Q&amp;A ao-vivo</strong>
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
       </aside>
