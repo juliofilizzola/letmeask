@@ -15,7 +15,7 @@ function Home() {
       <main>
         <div className="main-content">
           <img src={ logoImg } alt="Letmeask" />
-          <button type="button">
+          <button type="button" className="create-room">
             <img src={ googleImage } alt="Logo da google" />
             Crie sua sala com o Google
           </button>
