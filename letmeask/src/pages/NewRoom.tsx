@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom'
 import illustration from '../assets/img/illustration.svg';
 import logoImg from '../assets/img/logo.svg';
 import Button from '../components/Button';
-import { AuthContext } from '../App';
+import { useAuth } from '../hooks/useAuth';
+
 
 import '../styles/auth.scss';
 
 function NewRoom() {
-  const { user } = React.useContext(AuthContext);
+  const { user } = useAuth();
 
   return (
     <div id="page-auth">

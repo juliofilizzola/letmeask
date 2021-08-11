@@ -4,12 +4,12 @@ import illustration from '../assets/img/illustration.svg';
 import logoImg from '../assets/img/logo.svg';
 import googleImage from '../assets/img/google-icon.svg';
 import Button from '../components/Button';
-import { AuthContext } from '../App';
+import { useAuth } from '../hooks/useAuth';
 import '../styles/auth.scss';
 
 function Home() {
   const history = useHistory();
-  const { user, signWithGoogle } = React.useContext(AuthContext);
+  const { user, signWithGoogle } = useAuth();
 
 
 
