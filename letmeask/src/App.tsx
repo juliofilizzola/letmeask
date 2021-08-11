@@ -4,7 +4,12 @@ import Home from './pages/Home';
 import NewRoom from './pages/NewRoom';
 import { auth, firebase } from './services/firebase';
 
-export const AuthContext = React.createContext({} as any);
+type AuthContextType = {
+  user: object,
+  signWithGoogle: () => void,
+}
+
+export const AuthContext = React.createContext({} as AuthContextType);
 
 function App() {
   const [user, setUser] = React.useState();
@@ -17,12 +22,18 @@ function App() {
         if (!displayName || !photoURL) {
           throw new Error('Missing information from Google Account.')
         }
+
+        setUser({
+          id: uid,
+          name:  displayName,
+          avatar: photoURL,
+        })
       }
     });
   }
   return (
     <Switch>
-      <AuthContext.Provider value={{ user, setUser }}>
+      <AuthContext.Provider value={{ user, signWithGoogle }}>
         <Route exact path="/" component={ Home }/>
         <Route exact path="/rooms/new" component={ NewRoom }/>
       </AuthContext.Provider>
