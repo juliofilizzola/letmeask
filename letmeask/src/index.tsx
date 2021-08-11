@@ -4,7 +4,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
 
-// import './services/firebase';
+import './services/firebase';
 
 import './styles/global.scss';
 
