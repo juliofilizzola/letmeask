@@ -1,14 +1,16 @@
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import illustration from '../assets/img/illustration.svg';
 import logoImg from '../assets/img/logo.svg';
 import googleImage from '../assets/img/google-icon.svg';
 import Button from '../components/Button';
-
+import { AuthContext } from '../App';
 import '../styles/auth.scss';
 import { auth, firebase } from '../services/firebase';
 
 function Home() {
   const history = useHistory();
+  const { user, signWithGoogle } = React.useContext(AuthContext);
 
 
 
