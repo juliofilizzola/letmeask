@@ -6,7 +6,6 @@ import googleImage from '../assets/img/google-icon.svg';
 import Button from '../components/Button';
 import { AuthContext } from '../App';
 import '../styles/auth.scss';
-import { auth, firebase } from '../services/firebase';
 
 function Home() {
   const history = useHistory();
@@ -14,10 +13,10 @@ function Home() {
 
 
 
-  const navigateToNewRoom = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider).then(result => console.log(result)
-    );
+  const navigateToNewRoom = async () => {
+    if(user) {
+      await signWithGoogle()
+    }
     history.push('/rooms/new');
   }
 
