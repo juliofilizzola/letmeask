@@ -4,15 +4,21 @@ import Home from './pages/Home';
 import NewRoom from './pages/NewRoom';
 import { auth, firebase } from './services/firebase';
 
+type User = {
+  id: string,
+  name: string,
+  avatar: string,
+}
+
 type AuthContextType = {
-  user: object,
+  user: User | undefined,
   signWithGoogle: () => void,
 }
 
 export const AuthContext = React.createContext({} as AuthContextType);
 
 function App() {
-  const [user, setUser] = React.useState();
+  const [user, setUser] = React.useState<User>();
 
   const signWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
