@@ -1,14 +1,19 @@
 import React from 'react';
-import './App.css';
-import './services/firebase';
-
+import { Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import NewRoom from './pages/NewRoom';
+import { AuthContextProvider } from './context/AuthContext'
 
 function App() {
+
+
   return (
-    <div className="App">
-      
-       
-    </div>
+    <Switch>
+      <AuthContextProvider>
+        <Route exact path="/" component={ Home }/>
+        <Route exact path="/rooms/new" component={ NewRoom }/>
+      </AuthContextProvider>
+    </Switch>
   );
 }
 
