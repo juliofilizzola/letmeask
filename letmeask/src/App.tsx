@@ -1,10 +1,15 @@
+import { Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import NewRoom from './pages/NewRoom';
+// import { Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div>
-      <Home />
-    </div>
+    <Switch>
+      <Route exact path="/" component={ Home }/>
+      <Route exact path="/newRoom" component={ NewRoom }/>
+
+    </Switch>
   );
 }
 
