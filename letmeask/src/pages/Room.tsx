@@ -1,7 +1,7 @@
 function Room() {
   return (
     <div>
-      
+      Sala de estudos
     </div>
   );
 }
