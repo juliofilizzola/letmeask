@@ -1,5 +1,5 @@
 import React, { FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import illustration from '../assets/img/illustration.svg';
 import logoImg from '../assets/img/logo.svg';
 import Button from '../components/Button';
@@ -11,6 +11,7 @@ import '../styles/auth.scss';
 
 function NewRoom() {
   const [newRoom, setNewRoom]= React.useState('')
+  const history = useHistory();
   const { user } = useAuth();
   
   const handleCreateRoom = async (event: FormEvent) => {
@@ -21,10 +22,11 @@ function NewRoom() {
     }
 
     const roomRef = database.ref('rooms');
-    const firebeseRoom = await roomRef.push({
+    const firebaseRoom = await roomRef.push({
       title: newRoom,
       authId: user?.id,
     });
+    history.push(`/room/${firebaseRoom.key}`);
   }
 
   return (
