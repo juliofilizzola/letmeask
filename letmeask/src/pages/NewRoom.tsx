@@ -26,6 +26,7 @@ function NewRoom() {
       title: newRoom,
       authId: user?.id,
     });
+    
     history.push(`/room/${firebaseRoom.key}`);
   }
 
