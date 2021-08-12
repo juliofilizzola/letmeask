@@ -13,8 +13,8 @@ function Home() {
 
 
 
-  const navigateToNewRoom = async () => {
-    if(user) {
+  const handleCreateRoom = async () => {
+    if(!user) {
       await signWithGoogle()
     }
     history.push('/rooms/new');
@@ -31,7 +31,7 @@ function Home() {
       <main>
         <div className="main-content">
           <img src={ logoImg } alt="Letmeask" />
-          <button onClick={ navigateToNewRoom } type="button" className="create-room">
+          <button onClick={ handleCreateRoom } type="button" className="create-room">
             <img src={ googleImage } alt="Logo da google" />
             Crie sua sala com o Google
           </button>
