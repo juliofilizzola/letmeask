@@ -13,7 +13,7 @@ function App() {
       <AuthContextProvider>
         <Route exact path="/" component={ Home }/>
         <Route exact path="/rooms/new" component={ NewRoom }/>
-        <Route exact path="/rooms/:id" component={ Room }/>
+        <Route path="/rooms/:id" component={ Room }/>
       </AuthContextProvider>
     </Switch>
   );
