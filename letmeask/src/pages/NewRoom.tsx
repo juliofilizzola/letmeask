@@ -1,5 +1,5 @@
 import React, { FormEvent } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import illustration from '../assets/img/illustration.svg';
 import logoImg from '../assets/img/logo.svg';
 import Button from '../components/Button';
