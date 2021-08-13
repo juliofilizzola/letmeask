@@ -1,7 +1,13 @@
+
+
 function Room() {
   return (
-    <div>
-      Sala de estudos
+    <div id="page-room">
+      <header>
+        <div className="content">
+
+        </div>
+      </header>
     </div>
   );
 }
