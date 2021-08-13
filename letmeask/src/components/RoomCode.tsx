@@ -1,4 +1,5 @@
 import copyImg from '../assets/img/copy.svg';
+import '../styles/roomCode.scss';
 
 function RoomCode() {
   return (
