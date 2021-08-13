@@ -1,3 +1,5 @@
+import copyImg from '../assets/img/copy.svg';
+
 function RoomCode() {
   return (
     <button className="room-code">
