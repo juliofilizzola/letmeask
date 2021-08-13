@@ -1,3 +1,4 @@
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import logoImg from '../assets/img/logo.svg';
 import Button from '../components/Button';
@@ -10,6 +11,9 @@ type RoomParams = {
 
 function Room() {
   const params = useParams<RoomParams>();
+  const [newQuestion, setNewQuestion] = React.useState('');
+
+  
   return (
     <div id="page-room">
       <header>
@@ -26,7 +30,11 @@ function Room() {
         </div>
 
         <form>
-          <textarea placeholder="O que você quer perguntar?"/>
+          <textarea
+            placeholder="O que você quer perguntar?"
+            onChange={ ({ target }) => setNewQuestion( target.value) }
+            value={ newQuestion }
+          />
           <div className="form-footer">
             <span> Para enviar uma perguntar, <button>faça seu login</button>.</span>
             <Button type="submit">Enviar perguntar</Button>
