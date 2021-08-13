@@ -1,5 +1,6 @@
 import logoImg from '../assets/img/logo.svg';
 import Button from '../components/Button';
+import RoomCode from '../components/RoomCode';
 import '../styles/room.scss';
 
 function Room() {
@@ -8,7 +9,7 @@ function Room() {
       <header>
         <div className="content">
           <img src={ logoImg } alt="logo" />
-          <div>code</div> 
+          <RoomCode />
         </div>
       </header>
       
