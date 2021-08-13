@@ -1,4 +1,4 @@
-
+import logoImg from '../assets/img/logo.svg';
 
 function Room() {
   return (
