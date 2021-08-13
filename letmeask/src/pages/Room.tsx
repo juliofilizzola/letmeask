@@ -13,8 +13,6 @@ type RoomParams = {
   id: string,
 }
 
-
-
 function Room() {
   const { user } = useAuth();
   const params = useParams<RoomParams>();
