@@ -5,6 +5,7 @@ import Button from '../components/Button';
 import Question from '../components/Question';
 import RoomCode from '../components/RoomCode';
 import { useAuth } from '../hooks/useAuth';
+import useRoom from '../hooks/useRoom';
 import { database } from '../services/firebase';
 import '../styles/room.scss';
 
@@ -18,9 +19,7 @@ function Room() {
   const { user } = useAuth();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = React.useState('');
-
-
-  
+  const { questions , title } = useRoom(params.id);
 
   const handleSendQuestion = async (event: FormEvent) => {
     event.preventDefault();

@@ -21,12 +21,12 @@ type FirebaseQuestions = Record<string, {
   isHighlighted: boolean;
 }>
 
-const useRoom = () => {
+const useRoom = (RoomId: string) => {
   const [questions, setQuestions] = React.useState<QuestionType[]>([]);
   const [title, setTitle] = React.useState('');
   React.useEffect( () => { 
 
-    const roomRef = database.ref(`rooms/${params.id}`);
+    const roomRef = database.ref(`rooms/${RoomId}`);
     roomRef.on('value', (room) => {
       const database = room.val();
       const firebaseQuestions: FirebaseQuestions = database.questions ?? {};
@@ -43,7 +43,9 @@ const useRoom = () => {
       setTitle(database.title);
       setQuestions(parsedQuestion);
     })
-  }, [params.id] )
+  }, [RoomId] );
+
+  return { questions , title };
 }
 
 export default useRoom;
