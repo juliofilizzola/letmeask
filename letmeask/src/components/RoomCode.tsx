@@ -1,8 +1,10 @@
 function RoomCode() {
   return (
-    <div>
-      
-    </div>
+    <button className="room-code">
+      <div>
+        <img src={ } alt="Copy room code" />
+      </div>
+    </button>
   );
 }
 
