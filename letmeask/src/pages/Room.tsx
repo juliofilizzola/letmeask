@@ -11,15 +11,6 @@ import '../styles/room.scss';
 type RoomParams = {
   id: string,
 }
-type QuestionType = {
-  author: {
-    name: string;
-    avatar: string;
-  }
-  content: string;
-  isAnswered: boolean;
-  isHighlighted: boolean;
-}
 
 type FirebaseQuestions = Record<string, { 
   author: {
@@ -35,8 +26,7 @@ function Room() {
   const { user } = useAuth();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = React.useState('');
-  const [questions, setQuestions] = React.useState<QuestionType[]>([]);
-  const [title, setTitle] = React.useState('');
+
 
   React.useEffect( () => { 
     const roomRef = database.ref(`rooms/${params.id}`);
