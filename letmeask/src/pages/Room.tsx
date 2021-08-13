@@ -11,7 +11,7 @@ import '../styles/room.scss';
 type RoomParams = {
   id: string,
 }
-type Question = {
+type QuestionType = {
   author: {
     name: string;
     avatar: string;
@@ -35,7 +35,7 @@ function Room() {
   const { user } = useAuth();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = React.useState('');
-  const [questions, setQuestions] = React.useState<Question[]>([]);
+  const [questions, setQuestions] = React.useState<QuestionType[]>([]);
   const [title, setTitle] = React.useState('');
 
   React.useEffect( () => { 
