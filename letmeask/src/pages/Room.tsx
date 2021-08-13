@@ -10,6 +10,15 @@ import '../styles/room.scss';
 type RoomParams = {
   id: string,
 }
+type Question = {
+  author: {
+    name: string;
+    avatar: string;
+  }
+  content: string;
+  isAnswered: boolean;
+  isHighlighted: boolean;
+}
 
 type FirebaseQuestions = Record<string, { 
   author: {
@@ -25,12 +34,14 @@ function Room() {
   const { user } = useAuth();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = React.useState('');
+  const [questions, setQuestions] = React.useState<Question[]>([]);
+  const [title, setTitle] = React.useState('');
 
   React.useEffect( () => { 
     const roomRef = database.ref(`rooms/${params.id}`);
-    roomRef.once('value', (room) => {
+    roomRef.on('value', (room) => {
       const database = room.val();
-      const firebaseQuestions: FirebaseQuestions = database.question ?? {};
+      const firebaseQuestions: FirebaseQuestions = database.questions ?? {};
       const parsedQuestion = Object.entries(firebaseQuestions).map(([key, value]) => {
         return {
           id: key,
@@ -39,8 +50,10 @@ function Room() {
           isHighlighted: value.isHighlighted,
           isAnswered: value.isAnswered,
         }
-      })
+      });
 
+      setTitle(database.title);
+      setQuestions(parsedQuestion);
     })
   }, [params.id] )
 
@@ -67,7 +80,7 @@ function Room() {
     await database.ref(`/rooms/${params.id}/questions`).push(question);
     setNewQuestion('');
   }
-  
+
   return (
     <div id="page-room">
       <header>
@@ -79,8 +92,8 @@ function Room() {
       
       <main className="content">
         <div className="room-title">
-          <h1>Sala</h1>
-          <span>Xablau</span>
+          <h1>Sala { title }</h1>
+          { questions.length > 0 && <span>{questions.length} perguntas</span>}
         </div>
 
         <form onSubmit={ handleSendQuestion }>
