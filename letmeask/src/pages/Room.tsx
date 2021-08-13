@@ -36,7 +36,8 @@ function Room() {
       isHighlighted: false,
       isAnswered: false,
     }
-    await database.ref(`/rooms/${params.id}/questions`).push(question)
+    await database.ref(`/rooms/${params.id}/questions`).push(question);
+    setNewQuestion('');
   }
   
   return (
