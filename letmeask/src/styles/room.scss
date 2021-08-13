@@ -18,6 +18,7 @@
   main {
     max-width: 800px;
     margin: 0 auto;
+
     .room-title {
       margin: 32px 0 24px;
       display: flex;
@@ -36,6 +37,7 @@
         padding: 8px 16px;
         color: #fff;
         font-weight: 500;
+        align-self: center;
         font-size: 14px;
       }
     }
