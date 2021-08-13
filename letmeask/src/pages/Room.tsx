@@ -15,7 +15,7 @@ function Room() {
       <main className="content">
         <div className="room-title">
           <h1>Sala</h1>
-          <span></span>
+          <span>Xablau</span>
         </div>
 
         <form>
