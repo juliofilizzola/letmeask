@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import NewRoom from './pages/NewRoom';
 import { AuthContextProvider } from './context/AuthContext'
+import Room from './pages/Room';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <AuthContextProvider>
         <Route exact path="/" component={ Home }/>
         <Route exact path="/rooms/new" component={ NewRoom }/>
+        <Route path="/rooms/:id" component={ Room }/>
       </AuthContextProvider>
     </Switch>
   );
