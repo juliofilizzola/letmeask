@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import logoImg from '../assets/img/logo.svg';
 import Button from '../components/Button';
 import RoomCode from '../components/RoomCode';
+import { useAuth } from '../hooks/useAuth';
+import { database } from '../services/firebase';
 import '../styles/room.scss';
 
 type RoomParams = {
@@ -10,9 +12,30 @@ type RoomParams = {
 }
 
 function Room() {
+  const user = useAuth();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = React.useState('');
 
+  const handleSendQuestion = async () => {
+    if (newQuestion.trim() === '') {
+      return;
+    }
+
+    if (!user) {
+      throw new Error('You must be logged in');
+    }
+
+    const question = {
+      content: newQuestion,
+      author: {
+        name: user.name,
+        avatar: user.avatar,
+      },
+      isHighlighted: false,
+      isAnswered: false,
+    }
+    await database.ref(`/room`)
+  }
   
   return (
     <div id="page-room">
@@ -29,7 +52,7 @@ function Room() {
           <span>Xablau</span>
         </div>
 
-        <form>
+        <form onSubmit={ handleSendQuestion }>
           <textarea
             placeholder="O que você quer perguntar?"
             onChange={ ({ target }) => setNewQuestion( target.value) }
