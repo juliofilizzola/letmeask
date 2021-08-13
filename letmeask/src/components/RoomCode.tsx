@@ -4,8 +4,9 @@ function RoomCode() {
   return (
     <button className="room-code">
       <div>
-        <img src={ } alt="Copy room code" />
+        <img src={ copyImg } alt="Copy room code" />
       </div>
+      <span>Sala </span>
     </button>
   );
 }
