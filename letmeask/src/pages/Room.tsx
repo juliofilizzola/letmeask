@@ -5,7 +5,7 @@ function Room() {
     <div id="page-room">
       <header>
         <div className="content">
-
+          <img src={ logoImg } alt="logo" />
         </div>
       </header>
     </div>
