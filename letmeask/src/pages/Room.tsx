@@ -115,11 +115,11 @@ function Room() {
             <Button type="submit" disabled={ !user }>Enviar perguntar</Button>
           </div>
         </form>
-        {questions.map( (question) => { 
+        {questions.map( (quest) => { 
           return (
             <Question 
-              content={ question.content }
-              author={ question.author }
+              content={ quest.content }
+              author={ quest.author }
             />
           );
         })}
