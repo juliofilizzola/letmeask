@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import { useParams } from 'react-router-dom';
 import logoImg from '../assets/img/logo.svg';
 import Button from '../components/Button';
@@ -12,11 +12,12 @@ type RoomParams = {
 }
 
 function Room() {
-  const user = useAuth();
+  const { user } = useAuth();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = React.useState('');
 
-  const handleSendQuestion = async () => {
+  const handleSendQuestion = async (event: FormEvent) => {
+    event.preventDefault();
     if (newQuestion.trim() === '') {
       return;
     }
@@ -24,6 +25,7 @@ function Room() {
     if (!user) {
       throw new Error('You must be logged in');
     }
+    
 
     const question = {
       content: newQuestion,
@@ -34,7 +36,7 @@ function Room() {
       isHighlighted: false,
       isAnswered: false,
     }
-    await database.ref(`/room`)
+    await database.ref(`/rooms/${params.id}/questions`).push(question)
   }
   
   return (
@@ -60,7 +62,7 @@ function Room() {
           />
           <div className="form-footer">
             <span> Para enviar uma perguntar, <button>faça seu login</button>.</span>
-            <Button type="submit">Enviar perguntar</Button>
+            <Button type="submit" disabled={ !user }>Enviar perguntar</Button>
           </div>
         </form>
       </main>
