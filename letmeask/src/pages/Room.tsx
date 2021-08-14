@@ -83,7 +83,15 @@ function Room() {
                   key={ index } 
                   content={ quest.content }
                   author={ quest.author }
-                />
+                >
+                <button
+                  className="like-button"
+                  type="button"
+                  aria-label="Marcar como gostei"
+                >
+                  
+                </button>
+                </Question>
               );
             })}
         </div>
