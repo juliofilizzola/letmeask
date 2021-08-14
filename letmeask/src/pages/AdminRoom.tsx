@@ -58,24 +58,6 @@ function AdminRoom() {
           { questions.length > 0 && <span>{questions.length} perguntas</span>}
         </div>
 
-        <form onSubmit={ handleSendQuestion }>
-          <textarea
-            placeholder="O que você quer perguntar?"
-            onChange={ ({ target }) => setNewQuestion( target.value) }
-            value={ newQuestion }
-          />
-          <div className="form-footer">
-            { user ? (
-              <div className="user-info">
-                <img src={ user.avatar } alt={ user.name }/>
-                <span>{ user.name }</span>
-              </div>
-            ) : (
-              <span> Para enviar uma perguntar, <button>faça seu login</button>.</span>
-            ) }
-            <Button type="submit" disabled={ !user }>Enviar perguntar</Button>
-          </div>
-        </form>
         <div className="question-list">
           {questions.map( (quest, index) => {           
               return (
