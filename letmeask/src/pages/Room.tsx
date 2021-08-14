@@ -94,6 +94,7 @@ function Room() {
                   className="like-button"
                   type="button"
                   aria-label="Marcar como gostei"
+                  onClick={ () => handleLikeQuestion(quest.id) }
                 >
                   <span>10</span>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
