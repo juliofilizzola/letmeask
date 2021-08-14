@@ -19,6 +19,10 @@ function Room() {
   const [newQuestion, setNewQuestion] = React.useState('');
   const { questions , title } = useRoom(params.id);
 
+  const handleLikeQuestion = async (question: string) => {
+
+  }
+
   const handleSendQuestion = async (event: FormEvent) => {
     event.preventDefault();
     if (newQuestion.trim() === '') {
@@ -42,7 +46,7 @@ function Room() {
     await database.ref(`/rooms/${params.id}/questions`).push(question);
     setNewQuestion('');
   }
-
+  
   return (
     <div id="page-room">
       <header>
