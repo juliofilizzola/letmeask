@@ -50,7 +50,11 @@ const useRoom = (RoomId: string) => {
 
       setTitle(database.title);
       setQuestions(parsedQuestion);
-    })
+    });
+    return () => {
+      roomRef.off('value');
+    }
+
   }, [RoomId, user?.id] );
 
   return { questions , title };
