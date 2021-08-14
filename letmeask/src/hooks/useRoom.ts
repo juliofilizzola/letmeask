@@ -7,6 +7,7 @@ type QuestionType = {
     avatar: string;
   }
   content: string;
+  id: string;
   isAnswered: boolean;
   isHighlighted: boolean;
 }
