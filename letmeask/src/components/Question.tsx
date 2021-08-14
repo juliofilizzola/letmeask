@@ -6,7 +6,8 @@ type QuestionsProps = {
   author: {
     name: string;
     avatar: string;
-  }
+  };
+  children: ReactNode;
 }
 
 function Question({content , author}: QuestionsProps) {
