@@ -19,8 +19,10 @@ function Room() {
   const [newQuestion, setNewQuestion] = React.useState('');
   const { questions , title } = useRoom(params.id);
 
-  const handleLikeQuestion = async (question: string) => {
-
+  const handleLikeQuestion = async (questionId: string) => {
+    await database.ref(`rooms/${params.id}/questions/${questionId}/likes`).push({
+      authorId: user?.id,
+    });                   
   }
 
   const handleSendQuestion = async (event: FormEvent) => {
