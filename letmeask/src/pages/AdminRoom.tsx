@@ -50,7 +50,7 @@ function AdminRoom() {
           <img src={ logoImg } alt="logo" />
           <div>
             <RoomCode code={ params.id } />
-            <Button> Encerrar Sala </Button>
+            <Button isOutlined={ true }> Encerrar Sala </Button>
           </div>
         </div>
       </header>
