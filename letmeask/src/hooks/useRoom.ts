@@ -11,6 +11,8 @@ type QuestionType = {
   id: string;
   isAnswered: boolean;
   isHighlighted: boolean;
+  likeCount: number;
+  hasLinked: boolean;
 }
 
 type FirebaseQuestions = Record<string, { 
