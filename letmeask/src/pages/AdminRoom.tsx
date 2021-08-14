@@ -48,7 +48,10 @@ function AdminRoom() {
       <header>
         <div className="content">
           <img src={ logoImg } alt="logo" />
-          <RoomCode code={ params.id } />
+          <div>
+            <RoomCode code={ params.id } />
+            <Button> Encerrar Sala </Button>
+          </div>
         </div>
       </header>
       
