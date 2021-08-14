@@ -19,10 +19,16 @@ function Room() {
   const [newQuestion, setNewQuestion] = React.useState('');
   const { questions , title } = useRoom(params.id);
 
-  const handleLikeQuestion = async (questionId: string) => {
-    await database.ref(`rooms/${params.id}/questions/${questionId}/likes`).push({
-      authorId: user?.id,
-    });                   
+  const handleLikeQuestion = async (questionId: string, likeId: string | undefined ) => {
+    if (likeId) {
+      await database.ref(`rooms/${params.id}/questions/${questionId}/likes`).push({
+        authorId: user?.id,
+      }) 
+    } else {
+      await database.ref(`rooms/${params.id}/questions/${questionId}/likes`).push({
+        authorId: user?.id,
+      });  
+    }              
   }
 
   const handleSendQuestion = async (event: FormEvent) => {
@@ -91,10 +97,10 @@ function Room() {
                   author={ quest.author }
                 >
                 <button
-                  className={ `like-button ${quest.hasLinked ?  'liked' : '' }` }
+                  className={ `like-button ${quest.likeId ?  'liked' : '' }` }
                   type="button"
                   aria-label="Marcar como gostei"
-                  onClick={ () => handleLikeQuestion(quest.id) }
+                  onClick={ () => handleLikeQuestion(quest.id, quest.likeId) }
                 >
                   { quest.likeCount > 0 && <span>{quest.likeCount}</span> }
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
