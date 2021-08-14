@@ -41,7 +41,7 @@ const useRoom = (RoomId: string) => {
           author: value.author,
           isHighlighted: value.isHighlighted,
           isAnswered: value.isAnswered,
-          likeCount: Object.values(value.likes ??  {})
+          likeCount: Object.values(value.likes ?? {}).length,
         }
       });
 
