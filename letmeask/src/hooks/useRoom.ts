@@ -44,13 +44,14 @@ const useRoom = (RoomId: string) => {
           isHighlighted: value.isHighlighted,
           isAnswered: value.isAnswered,
           likeCount: Object.values(value.likes ?? {}).length,
+          hasLinked: Object.values(value.likes ?? {}).some((like)=> like.authorId === user?.id ),
         }
       });
 
       setTitle(database.title);
       setQuestions(parsedQuestion);
     })
-  }, [RoomId] );
+  }, [RoomId, user?.id] );
 
   return { questions , title };
 }
