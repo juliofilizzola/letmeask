@@ -89,7 +89,8 @@ function Room() {
                   type="button"
                   aria-label="Marcar como gostei"
                 >
-                  
+                  <span>10</span>
+                  <img src={} alt="icone de like" />
                 </button>
                 </Question>
               );
