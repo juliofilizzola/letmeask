@@ -91,7 +91,7 @@ function Room() {
                   author={ quest.author }
                 >
                 <button
-                  className="like-button"
+                  className={ `like-button ${quest.hasLinked ?  'liked' : '' }` }
                   type="button"
                   aria-label="Marcar como gostei"
                   onClick={ () => handleLikeQuestion(quest.id) }
