@@ -20,6 +20,9 @@ type FirebaseQuestions = Record<string, {
   content: string;
   isAnswered: boolean;
   isHighlighted: boolean;
+  likes: Record<string, {
+    authorId: string;
+  }>;
 }>
 
 const useRoom = (RoomId: string) => {
@@ -38,6 +41,7 @@ const useRoom = (RoomId: string) => {
           author: value.author,
           isHighlighted: value.isHighlighted,
           isAnswered: value.isAnswered,
+          likeCount: Object.values(value.likes ??  {})
         }
       });
 
