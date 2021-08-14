@@ -7,10 +7,10 @@ type QuestionsProps = {
     name: string;
     avatar: string;
   };
-  children: ReactNode;
+  children?: ReactNode;
 }
 
-function Question({content , author}: QuestionsProps) {
+function Question({content , author, children}: QuestionsProps) {
   return (
     <div className="question">
       <p>{ content }</p>
@@ -19,7 +19,7 @@ function Question({content , author}: QuestionsProps) {
           <img src={ author.avatar } alt={ author.avatar } />
           <span>{ author.name }</span>
         </div>
-        <div></div>
+        <div>{children}</div>
       </footer>
     </div>
   );
