@@ -1,5 +1,4 @@
-import React, { FormEvent } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import logoImg from '../assets/img/logo.svg';
 import Button from '../components/Button';
 import Question from '../components/Question';
@@ -16,6 +15,7 @@ type RoomParams = {
 
 function AdminRoom() {
   // const { user } = useAuth();
+  const history = useHistory();
   const params = useParams<RoomParams>();
   const { questions , title } = useRoom(params.id);
 
@@ -23,8 +23,15 @@ function AdminRoom() {
     if (window.confirm('Você tem certeza que deseja deletar essa pergunta?')) {
       await database.ref(`rooms/${params.id}/questions/${questionId}`).remove();
     };
+
+    history.push('/');
   }
 
+  const handleEndRoom = async () => {
+    await database.ref(`rooms/${params.id}`).update({
+      endedAt: new Date(),
+    })
+  }
   return (
     <div id="page-room">
       <header>
@@ -32,7 +39,7 @@ function AdminRoom() {
           <img src={ logoImg } alt="logo" />
           <div>
             <RoomCode code={ params.id } />
-            <Button isOutlined={ true }> Encerrar Sala </Button>
+            <Button onClick={ handleEndRoom } isOutlined={ true }> Encerrar Sala </Button>
           </div>
         </div>
       </header>
