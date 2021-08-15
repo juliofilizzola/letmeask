@@ -3,7 +3,7 @@ import logoImg from '../assets/img/logo.svg';
 import Button from '../components/Button';
 import Question from '../components/Question';
 import RoomCode from '../components/RoomCode';
-import { useAuth } from '../hooks/useAuth';
+// import { useAuth } from '../hooks/useAuth';
 import useRoom from '../hooks/useRoom';
 import deleteImg from '../assets/img/delete.svg';
 import { database } from '../services/firebase';
@@ -23,7 +23,6 @@ function AdminRoom() {
     if (window.confirm('Você tem certeza que deseja deletar essa pergunta?')) {
       await database.ref(`rooms/${params.id}/questions/${questionId}`).remove();
     };
-
     history.push('/');
   }
 
