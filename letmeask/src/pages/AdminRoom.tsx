@@ -6,7 +6,7 @@ import Question from '../components/Question';
 import RoomCode from '../components/RoomCode';
 import { useAuth } from '../hooks/useAuth';
 import useRoom from '../hooks/useRoom';
-import deletImg from '../assets/img/delete.svg';
+import deleteImg from '../assets/img/delete.svg';
 import { database } from '../services/firebase';
 import '../styles/room.scss';
 
@@ -46,7 +46,7 @@ function AdminRoom() {
                   author={ quest.author }
                 >
                   <button>
-                    <img src={ deletImg } alt="Deletar pergunta" />
+                    <img src={ deleteImg } alt="Deletar pergunta" />
                   </button>
                 </Question>
               );
