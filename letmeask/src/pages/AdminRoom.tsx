@@ -19,6 +19,12 @@ function AdminRoom() {
   const params = useParams<RoomParams>();
   const { questions , title } = useRoom(params.id);
 
+  const handleDeleteQuestion = async (questionId: string) => {
+    if (window.confirm('Você tem certeza que deseja deletar essa pergunta?')) {
+      await database.ref(`rooms/${params.id}/questions/${questionId}`).remove();
+    };
+  }
+
   return (
     <div id="page-room">
       <header>
