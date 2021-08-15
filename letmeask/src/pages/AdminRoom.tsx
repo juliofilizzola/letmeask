@@ -23,13 +23,13 @@ function AdminRoom() {
     if (window.confirm('Você tem certeza que deseja deletar essa pergunta?')) {
       await database.ref(`rooms/${params.id}/questions/${questionId}`).remove();
     };
-    history.push('/');
   }
-
+  
   const handleEndRoom = async () => {
     await database.ref(`rooms/${params.id}`).update({
       endedAt: new Date(),
     })
+    history.push('/');
   }
   return (
     <div id="page-room">
