@@ -44,7 +44,11 @@ function AdminRoom() {
                   key={ index } 
                   content={ quest.content }
                   author={ quest.author }
-                />
+                >
+                  <button>
+                    <img src={ deletImg } alt="Deletar pergunta" />
+                  </button>
+                </Question>
               );
             })}
         </div>
