@@ -45,7 +45,7 @@ function AdminRoom() {
                   content={ quest.content }
                   author={ quest.author }
                 >
-                  <button>
+                  <button type="button" >
                     <img src={ deleteImg } alt="Deletar pergunta" />
                   </button>
                 </Question>
