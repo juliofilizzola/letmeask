@@ -21,9 +21,7 @@ function Room() {
 
   const handleLikeQuestion = async (questionId: string, likeId: string | undefined ) => {
     if (likeId) {
-      await database.ref(`rooms/${params.id}/questions/${questionId}/likes`).push({
-        authorId: user?.id,
-      }) 
+      await database.ref(`rooms/${params.id}/questions/${questionId}/likes`).remove()
     } else {
       await database.ref(`rooms/${params.id}/questions/${questionId}/likes`).push({
         authorId: user?.id,

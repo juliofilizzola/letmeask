@@ -14,34 +14,9 @@ type RoomParams = {
 }
 
 function AdminRoom() {
-  const { user } = useAuth();
+  // const { user } = useAuth();
   const params = useParams<RoomParams>();
-  const [newQuestion, setNewQuestion] = React.useState('');
   const { questions , title } = useRoom(params.id);
-
-  const handleSendQuestion = async (event: FormEvent) => {
-    event.preventDefault();
-    if (newQuestion.trim() === '') {
-      return;
-    }
-
-    if (!user) {
-      throw new Error('You must be logged in');
-    }
-    
-
-    const question = {
-      content: newQuestion,
-      author: {
-        name: user.name,
-        avatar: user.avatar,
-      },
-      isHighlighted: false,
-      isAnswered: false,
-    }
-    await database.ref(`/rooms/${params.id}/questions`).push(question);
-    setNewQuestion('');
-  }
 
   return (
     <div id="page-room">
