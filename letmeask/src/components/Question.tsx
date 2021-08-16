@@ -20,7 +20,7 @@ function Question({
   children
 }: QuestionsProps) {
   return (
-    <div className="question">
+    <div className={ `question ${isAnswered ? 'answered' : ''} ${isHighlighted ? 'highlighted': ''}` }>
       <p>{ content }</p>
       <footer>
         <div className="user-info">
