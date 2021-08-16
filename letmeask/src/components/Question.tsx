@@ -12,7 +12,13 @@ type QuestionsProps = {
   isHighlighted?: boolean;
 }
 
-function Question({content, isHighlighted, isAnswered, author, children}: QuestionsProps) {
+function Question({
+  content,
+  isHighlighted = false,
+  isAnswered = false,
+  author,
+  children
+}: QuestionsProps) {
   return (
     <div className="question">
       <p>{ content }</p>
