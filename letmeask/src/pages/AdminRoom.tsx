@@ -62,7 +62,7 @@ function AdminRoom() {
                   <button type="button" onClick={ () => handleCheckQuestionAsAnswered(quest.id) }>
                     <img src={ checkImg } alt="Deletar pergunta" />
                   </button>
-                  <button type="button" onClick={ () => (quest.id) }>
+                  <button type="button" onClick={ () => handleHighlightQuestion(quest.id) }>
                     <img src={ answerImg } alt="Deletar pergunta" />
                   </button>
                   <button type="button" onClick={ () => handleDeleteQuestion(quest.id) }>
