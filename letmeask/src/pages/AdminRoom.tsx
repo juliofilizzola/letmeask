@@ -27,6 +27,10 @@ function AdminRoom() {
     };
   }
   
+  const handleCheckQuestionAsAnswered = async () => {
+
+  }
+
   const handleEndRoom = async () => {
     await database.ref(`rooms/${params.id}`).update({
       endedAt: new Date(),
