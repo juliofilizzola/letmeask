@@ -3,6 +3,8 @@ import logoImg from '../assets/img/logo.svg';
 import Button from '../components/Button';
 import Question from '../components/Question';
 import RoomCode from '../components/RoomCode';
+import checkImg from '../assets/img/check.svg';
+import answerImg from '../assets/img/answer.svg';
 // import { useAuth } from '../hooks/useAuth';
 import useRoom from '../hooks/useRoom';
 import deleteImg from '../assets/img/delete.svg';
@@ -58,10 +60,10 @@ function AdminRoom() {
                   author={ quest.author }
                 >
                   <button type="button" onClick={ () => handleDeleteQuestion(quest.id) }>
-                    <img src={ deleteImg } alt="Deletar pergunta" />
+                    <img src={ checkImg } alt="Deletar pergunta" />
                   </button>
                   <button type="button" onClick={ () => handleDeleteQuestion(quest.id) }>
-                    <img src={ deleteImg } alt="Deletar pergunta" />
+                    <img src={ answerImg } alt="Deletar pergunta" />
                   </button>
                   <button type="button" onClick={ () => handleDeleteQuestion(quest.id) }>
                     <img src={ deleteImg } alt="Deletar pergunta" />
