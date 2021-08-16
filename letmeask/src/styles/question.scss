@@ -12,6 +12,14 @@
     color: #29292e;
   }
 
+  &.answered {
+
+  }
+
+  &.highlighted {
+
+  }
+  
   footer {
     display: flex;
     justify-content: space-between;
@@ -39,7 +47,7 @@
       display: flex;
       gap: 16px
     }
-    
+
     button {
       border: 0;
       background: transparent;
