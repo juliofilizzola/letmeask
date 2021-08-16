@@ -3,6 +3,8 @@ import logoImg from '../assets/img/logo.svg';
 import Button from '../components/Button';
 import Question from '../components/Question';
 import RoomCode from '../components/RoomCode';
+import checkImg from '../assets/img/check.svg';
+import answerImg from '../assets/img/answer.svg';
 // import { useAuth } from '../hooks/useAuth';
 import useRoom from '../hooks/useRoom';
 import deleteImg from '../assets/img/delete.svg';
@@ -25,6 +27,18 @@ function AdminRoom() {
     };
   }
   
+  const handleCheckQuestionAsAnswered = async (questionId: string) => {
+    await database.ref(`rooms/${params.id}/questions/${questionId}`).update({
+      isAnswered: true,
+    })
+  }
+
+  const handleHighlightQuestion = async (questionId: string) => {
+    await database.ref(`rooms/${params.id}/questions/${questionId}`).update({
+      isHighlighted: true,
+    })
+  }
+
   const handleEndRoom = async () => {
     await database.ref(`rooms/${params.id}`).update({
       endedAt: new Date(),
@@ -56,7 +70,19 @@ function AdminRoom() {
                   key={ index } 
                   content={ quest.content }
                   author={ quest.author }
+                  isHighlighted={ quest.isHighlighted }
+                  isAnswered={ quest.isAnswered }
                 >
+                  {!quest.isAnswered && (
+                    <>
+                      <button type="button" onClick={ () => handleCheckQuestionAsAnswered(quest.id) }>
+                        <img src={ checkImg } alt="Deletar pergunta" />
+                      </button>
+                      <button type="button" onClick={ () => handleHighlightQuestion(quest.id) }>
+                        <img src={ answerImg } alt="Deletar pergunta" />
+                      </button>
+                    </>
+                  )}
                   <button type="button" onClick={ () => handleDeleteQuestion(quest.id) }>
                     <img src={ deleteImg } alt="Deletar pergunta" />
                   </button>
