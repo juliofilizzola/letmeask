@@ -70,6 +70,8 @@ function AdminRoom() {
                   key={ index } 
                   content={ quest.content }
                   author={ quest.author }
+                  isHighlighted={ quest.isHighlighted }
+                  isAnswered={ quest.isAnswered }
                 >
                   <button type="button" onClick={ () => handleCheckQuestionAsAnswered(quest.id) }>
                     <img src={ checkImg } alt="Deletar pergunta" />
