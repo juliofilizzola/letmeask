@@ -27,11 +27,13 @@ function AdminRoom() {
     };
   }
   
-  const handleCheckQuestionAsAnswered = async () => {
-
+  const handleCheckQuestionAsAnswered = async (questionId: string) => {
+    await database.ref(`rooms/${params.id}/questions/${questionId}`).update({
+      isAnswered: true,
+    })
   }
 
-  const handleHighlightQuestion = async () => {}
+  const handleHighlightQuestion = async (questionId: string) => {}
 
   const handleEndRoom = async () => {
     await database.ref(`rooms/${params.id}`).update({
