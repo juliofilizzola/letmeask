@@ -8,9 +8,11 @@ type QuestionsProps = {
     avatar: string;
   };
   children?: ReactNode;
+  isAnswered?: boolean;
+  isHighlighted?: boolean;
 }
 
-function Question({content , author, children}: QuestionsProps) {
+function Question({content, isHighlighted, isAnswered author, children}: QuestionsProps) {
   return (
     <div className="question">
       <p>{ content }</p>
