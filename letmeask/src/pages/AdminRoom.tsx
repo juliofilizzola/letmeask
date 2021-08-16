@@ -31,6 +31,8 @@ function AdminRoom() {
 
   }
 
+  const handleHighlightQuestion = async () => {}
+
   const handleEndRoom = async () => {
     await database.ref(`rooms/${params.id}`).update({
       endedAt: new Date(),
