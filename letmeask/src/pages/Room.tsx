@@ -93,6 +93,8 @@ function Room() {
                   key={ index } 
                   content={ quest.content }
                   author={ quest.author }
+                  isHighlighted={ quest.isHighlighted }
+                  isAnswered={ quest.isAnswered }
                 >
                 <button
                   className={ `like-button ${quest.likeId ?  'liked' : '' }` }
